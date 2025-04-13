@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I'm Sorry</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      animation: fadeIn 2s ease;
+      color: #000;
+    }
+
+    h1, p {
+      opacity: 0;
+      color: #000;
+    }
+
+    h1 {
+      color: #d00000;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s forwards;
+    }
+
+    .slide-in {
+      animation: slideIn 2s forwards;
+      animation-delay: 2s;
+    }
+
+    .slide-in.delay {
+      animation-delay: 3s;
+    }
+
+    .slide-in.delay2 {
+      animation-delay: 4s;
+    }
+
+    .yes-btn, .no-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: white;
+    }
+
+    .yes-btn {
+      background-color: #d00000;
+      animation: pulse 2s infinite;
+    }
+
+    .no-btn {
+      background-color: #333;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes bounceAway {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(-10px); }
+      50%  { transform: translateX(10px); }
+      75%  { transform: translateX(-10px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="fade-in">I'm really sorry...</h1>
+    <p class="slide-in">I didn’t mean to hurt you.</p>
+    <p class="slide-in delay">You mean a lot to me.</p>
+    <p class="slide-in delay2">I hope you can forgive me.</p>
+
+    <!-- FormSubmit Email Trigger -->
+    <form action="https://formsubmit.co/affafimran18@gmailcom" method="POST">
+      <input type="hidden" name="message" value="They clicked: I Forgive You ❤️">
+      <button type="submit" class="yes-btn">❤️ I Forgive You</button>
+    </form>
+
+    <!-- No Button -->
+    <button class="no-btn" id="noButton">😤 No, I Won’t Forgive You</button>
+  </div>
+
+  <script>
+    // Bouncing "No" button effect
+    const noBtn = document.getElementById("noButton");
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.animation = "bounceAway 0.1s";
+      setTimeout(() => {
+        noBtn.style.animation = "";
+      }, 500);
+    });
+  </script>
+</body>
+</html>
